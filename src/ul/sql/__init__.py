@@ -9,4 +9,5 @@ from cromlech.sqlalchemy import create_engine
 from dolmen.sqlcontainer import SQLContainer
 
 # for pyflakes. We're just convenient imports
+transaction_sql, sql_storage, SQLPublication
 create_engine, SQLContainer, SQLAlchemySession

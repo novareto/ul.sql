@@ -14,6 +14,11 @@ version = '1.0'
 long_description = read('README.txt') + '\n' + read('HISTORY.txt')
 
 install_requires = [
+     "cromlech.sqlalchemy",
+     "dolmen.sqlcontainer",
+     "sqlalchemy-imageattach",
+     "transaction",
+     "ul.browser",
     ]
 
 tests_require = [

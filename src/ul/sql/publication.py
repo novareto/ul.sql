@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from cromlech.sqlalchemy import create_and_register_engine, create_engine
-from sqlalchemy_imageattach import context as store
+from cromlech.sqlalchemy import create_and_register_engine
 from sqlalchemy_imageattach.stores.fs import HttpExposedFileSystemStore
 from ul.browser.decorators import with_zcml, with_i18n
 from ul.browser.publication import Publication
