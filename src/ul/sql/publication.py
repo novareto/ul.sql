@@ -48,6 +48,16 @@ class SQLPublication(Publication):
         self.publish = self.get_publisher()
         self.setup_database(engine)
 
+    def __interact__(self, banner=u'', **namespace):
+
+        @transaction_sql(self.engine)
+        @sql_storage(self.fs_store)
+        def shell():
+            return super(SQLPublication, self).__interact__(
+                banner=u'', **namespace)
+
+        return shell()
+
     def __call__(self, environ, start_response):
 
         @transaction_sql(self.engine)
