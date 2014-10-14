@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from cromlech.sqlalchemy import create_and_register_engine
+from cromlech.sqlalchemy import create_and_register_engine, get_session
 from sqlalchemy_imageattach.stores.fs import HttpExposedFileSystemStore
 from ul.browser.decorators import with_zcml, with_i18n
 from ul.browser.publication import Publication
@@ -53,6 +53,8 @@ class SQLPublication(Publication):
         @transaction_sql(self.engine)
         @sql_storage(self.fs_store)
         def shell():
+            session = get_session(self.name)
+            namespace['sql_session'] = session
             return super(SQLPublication, self).__interact__(
                 banner=u'', **namespace)
 
