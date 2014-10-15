@@ -48,6 +48,13 @@ class SQLPublication(Publication):
         self.publish = self.get_publisher()
         self.setup_database(engine)
 
+    def __runner__(self, func):
+        @transaction_sql(self.engine)
+        @sql_storage(self.fs_store)
+        def run(*args):
+            return func(*args)
+        return run
+
     def __interact__(self, banner=u'', **namespace):
 
         @transaction_sql(self.engine)
