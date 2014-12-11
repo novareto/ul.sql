@@ -2,4 +2,4 @@
 ul.sql
 ======
 
-FIX ME
+SQL components for UVC/Uvclight.
