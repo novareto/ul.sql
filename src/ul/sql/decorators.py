@@ -4,11 +4,11 @@ import transaction
 from cromlech.sqlalchemy import SQLAlchemySession
 
 
-def transaction_sql(engine):
+def transaction_sql(engine, **opt):
     def sql_wrapped(wrapped):
         def caller(*args):
             with transaction.manager as tm:
-                with SQLAlchemySession(engine, transaction_manager=tm):
+                with SQLAlchemySession(engine, transaction_manager=tm, **opt):
                     return wrapped(*args)
         return caller
     return sql_wrapped

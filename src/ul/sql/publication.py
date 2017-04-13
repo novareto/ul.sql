@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import namedtuple
-from cromlech.sqlalchemy import create_and_register_engine, get_session
+from cromlech.sqlalchemy import create_engine, get_session
 from sqlalchemy_imageattach.stores.fs import HttpExposedFileSystemStore
 from ul.browser.decorators import with_zcml, with_i18n
 from ul.browser.publication import Publication
@@ -26,7 +26,7 @@ class SQLPublication(Publication):
             name = str(cls.__name__.lower())
 
         # We register our SQLengine under a given name
-        engine = create_and_register_engine(dsn, name)
+        engine = create_engine(dsn, name)
 
         # We use a declarative base, if it exists we bind it and create
         if base is not None:
