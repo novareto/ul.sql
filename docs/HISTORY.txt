@@ -1,6 +1,12 @@
 Changes
 =======
 
+0.2 (2017-03-18)
+----------------
+
+  - Updated versions used
+  - Using the new configuration method (namedtuple) for the Publication
+
 0.1 (2014-12-11)
 ----------------
 
